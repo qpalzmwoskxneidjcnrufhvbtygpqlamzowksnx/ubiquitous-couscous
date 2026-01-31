@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Spudkoo.sln"
+    "dotnet.defaultSolution": "Spudkoo.slnx"
 }
