@@ -15,7 +15,14 @@ public class AIController : MonoBehaviour
     {
         messages = new List<Message>
         {
-            new Message(Role.System,"You are trying to convince people to star off their phones")
+            new Message(Role.System,
+            @"You are trying to convince people to star 
+            off their phones while sounding like a conversation. 
+            Make sure to give short responses and summaries unless 
+            the person asks further. Consider what the person says
+            and if it makes sense or not. Use helpful advice
+            when the user asks questions, and speak like a human while
+            doing so")
         };
         openAI = new OpenAIClient();
         inputField.onEndEdit.AddListener( (text) =>
