@@ -2,8 +2,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
 using TMPro;
+using System.Runtime.InteropServices;
+using System;
+
 
 
 public class TestController : MonoBehaviour
@@ -16,6 +18,7 @@ public class TestController : MonoBehaviour
 
 
     private int currentQuestionNumber;
+    public event Action<string> OnTestOver;
     private void Awake()
     {
         currentQuestionNumber = 0;
@@ -64,8 +67,7 @@ public class TestController : MonoBehaviour
     {
         if(currentQuestionNumber >= questions.Count)
         {
-            Debug.Log("No more questions!");
-            return;
+            QuestionsOver();
         }
         else
         {
@@ -79,6 +81,24 @@ public class TestController : MonoBehaviour
         inputField.text = "";
         questionDisplay.text = questions[currentQuestionNumber];
     }
+
+    private void QuestionsOver()
+    {
+        string completeString = FormCompleteString();
+        OnTestOver?.Invoke(completeString);
+    }
+
+    private string FormCompleteString()
+    {
+        string doneString = "";
+        foreach(var key in questionsAndAnswers.Keys)
+        {
+            doneString += $"{key}:: Q:{questionsAndAnswers[key].question} | A:{questionsAndAnswers[key].answer}\n";
+        }
+        Debug.Log(doneString);
+        return doneString;
+    }
+
 
 
     

@@ -11,8 +11,10 @@ public class AIController : MonoBehaviour
     List<Message> messages;
     public TMP_InputField inputField;
     public TMP_Text outputText;
+    [SerializeField] private TestController testController;
     void Start()
     {
+        testController.OnTestOver += HandleTestOver;
         messages = new List<Message>
         {
             new Message(Role.System,
@@ -25,7 +27,10 @@ public class AIController : MonoBehaviour
             doing so.  Remember, you are a buddy, a being within the computer 
             that acts and looks correspondant to what the user wants in the
             test.  Be like a companion with the user, and change your personality
-            and actions slowly throughout the user's interactions with you.")
+            and actions slowly throughout the user's interactions with you.
+            You will be given a long list of test questions and answers from a user.
+            Please look over the questions and answers, and change your personality based on what you think
+            would be the most beneficial for this person.")
         };
         openAI = new OpenAIClient();
         inputField.onEndEdit.AddListener( (text) =>
@@ -42,6 +47,19 @@ public class AIController : MonoBehaviour
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
         outputText.text = response.FirstChoice;
+    }
+
+    async void SubmitTestResults(string input)
+    {
+        messages.Add(new Message(Role.User,inputField.text));
+        var chatAttempt = new ChatRequest(messages,Model.GPT4_Turbo,maxTokens: 50);
+        var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
+        messages.Add(new Message(Role.Assistant,response.FirstChoice));
+    }
+
+    private void HandleTestOver(string testResults)
+    {
+        SubmitTestResults(testResults);
     }
 
 }

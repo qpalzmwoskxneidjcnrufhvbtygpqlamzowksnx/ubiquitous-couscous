@@ -1303,6 +1303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1540816530}
   outputText: {fileID: 16984151}
+  testController: {fileID: 1850554291}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
