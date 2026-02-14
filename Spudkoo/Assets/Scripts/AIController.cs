@@ -51,7 +51,8 @@ public class AIController : MonoBehaviour
 
     async void SubmitTestResults(string input)
     {
-        messages.Add(new Message(Role.User,inputField.text));
+        Debug.Log("Submitted Test Results");
+        messages.Add(new Message(Role.User,input));
         var chatAttempt = new ChatRequest(messages,Model.GPT4_Turbo,maxTokens: 50);
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
@@ -59,6 +60,7 @@ public class AIController : MonoBehaviour
 
     private void HandleTestOver(string testResults)
     {
+        
         SubmitTestResults(testResults);
     }
 
