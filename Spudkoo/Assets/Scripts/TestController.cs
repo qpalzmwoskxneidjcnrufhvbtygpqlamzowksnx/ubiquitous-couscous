@@ -15,7 +15,7 @@ public class TestController : MonoBehaviour
 
     [SerializeField] private TMP_Text questionDisplay;
     [SerializeField] private TMP_InputField inputField;
-
+    [SerializeField] private GameObject doneButton;
 
     private int currentQuestionNumber;
     public event Action<string> OnTestOver;
@@ -86,6 +86,7 @@ public class TestController : MonoBehaviour
     {
         string completeString = FormCompleteString();
         OnTestOver?.Invoke(completeString);
+        doneButton.SetActive(true);
     }
 
     private string FormCompleteString()
