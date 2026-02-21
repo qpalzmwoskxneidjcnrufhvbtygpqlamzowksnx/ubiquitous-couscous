@@ -98,10 +98,6 @@ public class TestController : MonoBehaviour
         Debug.Log(doneString);
         return doneString;
     }
-
-
-
-    
 }
 
 public struct QuestionAnswer
