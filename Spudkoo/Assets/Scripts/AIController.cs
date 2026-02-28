@@ -12,6 +12,7 @@ public class AIController : MonoBehaviour
     public TMP_InputField inputField;
     public TMP_Text outputText;
     [SerializeField] private TestController testController;
+    public TMP_Text RandomFact;
     void Start()
     {
         testController.OnTestOver += HandleTestOver;
@@ -63,5 +64,18 @@ public class AIController : MonoBehaviour
         
         SubmitTestResults(testResults);
     }
+
+
+
+    public async void FactRequest(){
+        Debug.Log("Submitted Fact Request");  
+        string RequestMessage = "Please give me a random fact about something we talked about";
+        messages.Add(new Message(Role.User,RequestMessage));
+        var chatAttempt = new ChatRequest(messages,Model.GPT4_Turbo,maxTokens: 50);
+        var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
+        messages.Add(new Message(Role.Assistant,response.FirstChoice));
+        RandomFact.text = response.FirstChoice;
+    }
+
 
 }
