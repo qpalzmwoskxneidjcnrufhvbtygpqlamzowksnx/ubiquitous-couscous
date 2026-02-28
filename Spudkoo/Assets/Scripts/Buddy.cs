@@ -36,7 +36,6 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     private float _velocityY;
     private bool _isGrounded;
     private bool _isDragged;
-    private float _floorY;
     private float _groundY;
     private float _halfHeight;
     private float _halfWidth;
@@ -58,7 +57,6 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         Rect buddyRect = _rectTransform.rect;
         _halfWidth = buddyRect.width * 0.5f;
         _halfHeight = buddyRect.height * 0.5f;
-        UpdateFloorY();
         RefreshCollidables();
     }
 
@@ -159,12 +157,6 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         }
     }
 
-    private void UpdateFloorY()
-    {
-        if (_parentRect == null) return;
-        _floorY = _parentRect.rect.yMin + _halfHeight;
-    }
-
     private void RefreshCollidables()
     {
         _collidablesCache.Clear();
@@ -188,7 +180,7 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         // Floor: bottom of parent rect
         float floorSurfaceY = _parentRect.rect.yMin;
         if (buddyBottom <= floorSurfaceY)
-            return _floorY;
+            return floorSurfaceY + _halfHeight;
 
         float? highestLanding = null;
         foreach (var col in _collidablesCache)
