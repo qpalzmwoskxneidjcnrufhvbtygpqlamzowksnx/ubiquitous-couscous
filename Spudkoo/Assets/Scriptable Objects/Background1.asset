@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5380be1616cf4b4581362e1ceea09f4, type: 3}
   m_Name: Background1
   m_EditorClassIdentifier: 
-  BackgroundName: 
-  BackgroundSprite: {fileID: 0}
+  BackgroundName: Ocean
+  BackgroundSprite: {fileID: 21300000, guid: bee6d260f8e0152438161a4932138e57, type: 3}
+  Cost: 100
+  Unlocked: 0
+  ID: 1
