@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public List<GameObject> ScreenList ;
     public static UIManager Instance;
+
+    public static event Action OnMenuSwitched;
     void Awake()
     {
         Instance = this;
@@ -34,5 +37,6 @@ public class UIManager : MonoBehaviour
                 gob.SetActive (false);
             }
         }
+        OnMenuSwitched?.Invoke();
     }
 }

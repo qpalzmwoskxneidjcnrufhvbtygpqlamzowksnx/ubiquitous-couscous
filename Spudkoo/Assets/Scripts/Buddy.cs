@@ -68,7 +68,14 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         {
             PickNewTarget();
         }
+        UIManager.OnMenuSwitched += HandleMenuSwitched;
     }
+
+    private void HandleMenuSwitched()
+    {
+        RefreshCollidablesCache();
+    }
+
 
     private void Update()
     {
