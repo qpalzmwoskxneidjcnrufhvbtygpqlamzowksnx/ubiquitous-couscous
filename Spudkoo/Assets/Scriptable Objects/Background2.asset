@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5380be1616cf4b4581362e1ceea09f4, type: 3}
-  m_Name: NewBackgroundData
+  m_Name: Background2
   m_EditorClassIdentifier: 
-  BackgroundName: 
-  BackgroundSprite: {fileID: 0}
+  BackgroundName: RedRays
+  BackgroundSprite: {fileID: 21300000, guid: 100dadaed6a06cc478b6a47afa163c74, type: 3}
+  Cost: 300
+  Unlocked: 0
+  ID: 1
