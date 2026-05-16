@@ -5,6 +5,7 @@ using OpenAI.Chat;
 using OpenAI.Models;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 public class AIController : MonoBehaviour
 {
     OpenAIClient openAI;
@@ -13,6 +14,8 @@ public class AIController : MonoBehaviour
     public TMP_Text outputText;
     [SerializeField] private TestController testController;
     public TMP_Text RandomFact;
+
+    public event Action OnAIConversed;
     void Start()
     {
         testController.OnTestOver += HandleTestOver;
@@ -48,6 +51,7 @@ public class AIController : MonoBehaviour
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
         outputText.text = response.FirstChoice;
+        OnAIConversed?.Invoke();
     }
 
     async void SubmitTestResults(string input)
@@ -75,7 +79,7 @@ public class AIController : MonoBehaviour
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
         RandomFact.text = response.FirstChoice;
+        OnAIConversed?.Invoke();
     }
-
 
 }

@@ -23,6 +23,7 @@ public class BackgroundBrain : MonoBehaviour
     {
         backgroundImage.sprite = bgd.BackgroundSprite; 
     }
+
     private void InitializeBackgroundCards()
     {
         foreach(BackgroundData bd in backgrounddata) 
@@ -30,6 +31,5 @@ public class BackgroundBrain : MonoBehaviour
             BackgroundCard bc = Instantiate(cardprefab, cardContent);
             bc.Initialize(bd);
         }
-
     }
 }
