@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5380be1616cf4b4581362e1ceea09f4, type: 3}
-  m_Name: Background1
+  m_Name: OrangeB
   m_EditorClassIdentifier: 
-  BackgroundName: Ocean
-  BackgroundSprite: {fileID: 21300000, guid: bee6d260f8e0152438161a4932138e57, type: 3}
+  BackgroundName: Orange
+  BackgroundSprite: {fileID: 21300000, guid: 41b564e897ceee846afc807b0684071f, type: 3}
   Cost: 100
   Unlocked: 0
-  ID: 0
+  ID: 3

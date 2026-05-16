@@ -6354,7 +6354,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.0010070801, y: -0.00019836426}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 25.476837, y: -274.87524}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1247319622
 MonoBehaviour:
@@ -6486,8 +6486,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 1249844565}
   backgrounddata:
-  - {fileID: 11400000, guid: c09ef8b4fa3b62a418371de9eb9b872e, type: 2}
   - {fileID: 11400000, guid: eee8879365e212d4da0794eacc24b454, type: 2}
+  - {fileID: 11400000, guid: 6463b9cf7648dbc47a2218c71a7772fd, type: 2}
+  - {fileID: 11400000, guid: e48e48e24ff1e4744a76483f42bfcf5b, type: 2}
+  - {fileID: 11400000, guid: 87d7acb874d24f046b0315389417f043, type: 2}
+  - {fileID: 11400000, guid: 3bff5d4350b28ae49b4ae09232abad23, type: 2}
+  - {fileID: 11400000, guid: 0103eec5f3d5ba64b936977ccc4668e8, type: 2}
+  - {fileID: 11400000, guid: bbeeae1606000424f9be18e1ea418f97, type: 2}
+  - {fileID: 11400000, guid: 543f812f9b9d52449ac2dc264ff6bac0, type: 2}
+  - {fileID: 11400000, guid: 7291f3d6e1758fa48b271bf2830852e0, type: 2}
+  - {fileID: 11400000, guid: 02633c79267ce99409177e14abe4e8cc, type: 2}
+  - {fileID: 11400000, guid: c09ef8b4fa3b62a418371de9eb9b872e, type: 2}
+  - {fileID: 11400000, guid: 40cb3eb2d6f3e144a8ce99a46caa4027, type: 2}
+  - {fileID: 11400000, guid: c54365d54f5e07e448f289f6c43f5fab, type: 2}
+  - {fileID: 11400000, guid: ce85256887c9f40488ec68b29139a222, type: 2}
+  - {fileID: 11400000, guid: e63b00a94e4f2ca48a42bdbabf899f53, type: 2}
+  - {fileID: 11400000, guid: 0103eec5f3d5ba64b936977ccc4668e8, type: 2}
+  - {fileID: 11400000, guid: 0103eec5f3d5ba64b936977ccc4668e8, type: 2}
+  - {fileID: 11400000, guid: 0103eec5f3d5ba64b936977ccc4668e8, type: 2}
+  - {fileID: 11400000, guid: 0103eec5f3d5ba64b936977ccc4668e8, type: 2}
+  - {fileID: 11400000, guid: 0103eec5f3d5ba64b936977ccc4668e8, type: 2}
   cardprefab: {fileID: 1256275542263428752, guid: 74cd8895e30d9d14481849d7bba093fc, type: 3}
   cardContent: {fileID: 1788238700}
 --- !u!1 &1285485352
@@ -11730,7 +11748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1876658773
 RectTransform:
   m_ObjectHideFlags: 0
