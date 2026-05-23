@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class MoneyManager : MonoBehaviour
 {
     //* ----- Singleton Reference ------- *//
@@ -7,14 +7,15 @@ public class MoneyManager : MonoBehaviour
     
     [Header("References")]
     public AIController aiController;
-
+    public TMP_Text buddstext;
+    
 
     [Header("Settings")]
-    [SerializeField] private float budsChance;
-    [SerializeField] private int budsAmount;
+    [SerializeField] private float buddsChance;
+    [SerializeField] private int buddsAmount;
 
     [Header("Player")]
-    public int Buds = 0;
+    public int Budds = 0;
 
 
 
@@ -30,32 +31,38 @@ public class MoneyManager : MonoBehaviour
     }
 
 
-    public bool AddBuds(int amount)
+    public bool AddBudds(int amount)
     {
-        Buds += amount;
-        Debug.Log($"Added {amount} buds, total={Buds}");
+        Budds += amount;
+        Debug.Log($"Added {amount} budds, total={Budds}");
+        UpdateText();
         return true;
 
         //Returns bool incase we have some bud max
     }
 
-    public bool RemoveBuds(int amount)
+    public bool RemoveBudds(int amount)
     {
-        if(Buds-amount<0) return false;
-        else Buds -= amount;
+        if(Budds-amount<0) return false;
+        else Budds -= amount;
+        UpdateText();
         return true;
     }
 
     private void HandleAIConversed()
     {
-        TryAddBuds(budsChance);
+        TryAddBudds(buddsChance);
     }
 
-    private void TryAddBuds(float chance)
+    private void UpdateText()
+    {
+        buddstext.text=("Budds:"+Budds);
+    }
+    private void TryAddBudds(float chance)
     {
         if(Random.value > chance)
         {
-            AddBuds(budsAmount);
+            AddBudds(buddsAmount);
         }
     }
 

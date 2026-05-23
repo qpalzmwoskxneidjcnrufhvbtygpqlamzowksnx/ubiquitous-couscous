@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundName: TouchSomeGrass
   BackgroundSprite: {fileID: 21300000, guid: a199acc421f097f4b8eb2b61d57d9633, type: 3}
-  Cost: 1000
+  Cost: 10000
   Unlocked: 0
   ID: 4

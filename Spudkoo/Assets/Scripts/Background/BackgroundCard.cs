@@ -24,7 +24,7 @@ public class BackgroundCard : MonoBehaviour
         lockedImage.gameObject.SetActive(true);
         BackgroundImage.sprite = bd.BackgroundSprite;
         BackgroundText.text = bd.BackgroundName;
-        CostText.text = bd.Cost + " Buds";
+        CostText.text = bd.Cost + " Budds";
     }
 
     public void LoadBackground()
@@ -40,9 +40,9 @@ public class BackgroundCard : MonoBehaviour
         }
         else
         {
-            if(MoneyManager.Singleton.Buds >= backgroundData.Cost)
+            if(MoneyManager.Singleton.Budds >= backgroundData.Cost)
             {
-                MoneyManager.Singleton.RemoveBuds(backgroundData.Cost);
+                MoneyManager.Singleton.RemoveBudds(backgroundData.Cost);
                 backgroundData.Unlocked = true;
                 lockedImage.gameObject.SetActive(false);
                 Debug.Log("Background Purchased!");
