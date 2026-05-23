@@ -28,6 +28,7 @@ public class MoneyManager : MonoBehaviour
     private void Start()
     {
         aiController.OnAIConversed += HandleAIConversed;
+        UpdateText();
     }
 
 
@@ -56,7 +57,7 @@ public class MoneyManager : MonoBehaviour
 
     private void UpdateText()
     {
-        buddstext.text=("Budds:"+Budds);
+        buddstext.text= "Budds:" + Budds.ToString();
     }
     private void TryAddBudds(float chance)
     {
