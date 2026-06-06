@@ -21,10 +21,18 @@ public class BackgroundCard : MonoBehaviour
     public void Initialize(BackgroundData bd)
     {
         backgroundData = bd;
-        lockedImage.gameObject.SetActive(true);
+        
         BackgroundImage.sprite = bd.BackgroundSprite;
         BackgroundText.text = bd.BackgroundName;
         CostText.text = bd.Cost + " Budds";
+        if(bd.Unlocked)
+        {
+            lockedImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            lockedImage.gameObject.SetActive(true);
+        }
     }
 
     public void LoadBackground()
