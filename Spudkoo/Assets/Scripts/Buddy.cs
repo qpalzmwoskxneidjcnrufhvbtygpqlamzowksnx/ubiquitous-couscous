@@ -85,6 +85,7 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         float dt = Time.deltaTime;
         Vector2 pos = _rectTransform.anchoredPosition;
 
+
         if (!_isGrounded)
         {
             _velocityY -= gravity * dt;
@@ -109,7 +110,7 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             return;
         }
 
-        if (!canWander || !SpudkooSettings.Instance.CanBuddyCollide())
+        if (!canWander)
             return;
 
         if (_isWaiting)
@@ -184,10 +185,14 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         float buddyLeft = posX - _halfWidth;
         float buddyRight = posX + _halfWidth;
 
-        // Floor: bottom of parent rect
+        // Floor: bottom of parent rect - Buddy always lands on the floor
         float floorSurfaceY = _parentRect.rect.yMin;
         if (buddyBottom <= floorSurfaceY)
             return floorSurfaceY + _halfHeight;
+
+        // Other collidables (platforms) only count when collision is enabled
+        if (!SpudkooSettings.Instance.CanBuddyCollide())
+            return null;
 
         float? highestLanding = null;
         foreach (var col in _collidablesCache)
@@ -229,6 +234,10 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         float floorSurfaceY = _parentRect.rect.yMin;
         if (buddyBottom <= floorSurfaceY + SupportTolerance)
             return true;
+
+        // Other collidables (platforms) only support Buddy when collision is enabled
+        if (!SpudkooSettings.Instance.CanBuddyCollide())
+            return false;
 
         // Check collidables: is our bottom resting on a platform we overlap?
         foreach (var col in _collidablesCache)
