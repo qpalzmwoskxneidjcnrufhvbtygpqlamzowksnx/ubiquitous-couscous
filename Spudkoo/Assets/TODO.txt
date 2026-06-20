@@ -1,2 +1,41 @@
 1. Finish up backgrounds
-2. Find visuals for AI buddy
+2. Find visuals for AI buddy (Aden is working on this with another instructor)
+3. Reset option for developers (the actual save system)
+4. UI popup for when player gets Budds talking to buddy.
+5. Music / Sound Effects (kindof like the background shop, user has a way to select the background music they want)
+    - Each page should have its own background music
+    - Every few minutes, the music changes
+6. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
+
+
+Specifications for Settings
+- ActiveBuddyAnimations, wait until we have the buddy+ActiveBuddyAnimations
+- AI Audio Toggle, haven't been able to get TTS in Unity previously, might be hard, can probably remove
+- Low Performance Mode - Can Remove
+- Configure Button Positions - can Remove
+- For notifications:
+    - Package Unity.Notifications.Android to get up and running. Example from google: 
+
+
+
+using Unity.Notifications.Android;
+
+// 1. Register Android Channel
+var channel = new AndroidNotificationChannel()
+{
+    Id = "energy_channel",
+    Name = "Game Reminders",
+    Importance = Importance.Default,
+    Description = "Reminds you when game events finish",
+};
+AndroidNotificationCenter.RegisterNotificationChannel(channel);
+
+// 2. Schedule Notification
+var notification = new AndroidNotification();
+notification.Title = "Energy Refilled!";
+notification.Text = "Jump back in and start playing!";
+notification.FireTime = System.DateTime.Now.AddHours(2);
+
+AndroidNotificationCenter.SendNotification(notification, "energy_channel");
+
+

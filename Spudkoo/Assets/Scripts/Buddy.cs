@@ -109,7 +109,7 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             return;
         }
 
-        if (!canWander)
+        if (!canWander || !SpudkooSettings.Instance.CanBuddyCollide())
             return;
 
         if (_isWaiting)
@@ -331,7 +331,7 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     {
         OnDragEnd();
     }
-
+    
     /// <summary>
     /// Call this to enable/disable wandering (e.g. when chat is open or during other activities).
     /// </summary>
