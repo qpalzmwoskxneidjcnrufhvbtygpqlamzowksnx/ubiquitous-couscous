@@ -92,7 +92,7 @@ public class TestController : MonoBehaviour
         string doneString = "";
         foreach (var key in questionsAndAnswers.Keys)
         {
-            doneString += $"{key}:: Q:{questionsAndAnswers[key].question} | A:{questionsAndAnswers[key].answer}\n";
+            doneString += $"{key} Q:::{questionsAndAnswers[key].question} | A:{questionsAndAnswers[key].answer}\n";
         }
         Debug.Log(doneString);
         return doneString;

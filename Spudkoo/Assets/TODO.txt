@@ -7,7 +7,6 @@
     - Every few minutes, the music changes
 6. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
 
-
 Specifications for Settings
 - ActiveBuddyAnimations, wait until we have the buddy+ActiveBuddyAnimations
 - AI Audio Toggle, haven't been able to get TTS in Unity previously, might be hard, can probably remove
