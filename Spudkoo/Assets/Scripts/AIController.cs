@@ -47,7 +47,7 @@ public class AIController : MonoBehaviour
     {
         Debug.Log("ChatSubmitted");
         messages.Add(new Message(Role.User,inputField.text));
-        var chatAttempt = new ChatRequest(messages,Model.GPT4_Turbo,maxTokens: 50);
+        var chatAttempt = new ChatRequest(messages,Model.GPT4oMini,maxTokens: 50);
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
         outputText.text = response.FirstChoice;
@@ -58,7 +58,7 @@ public class AIController : MonoBehaviour
     {
         Debug.Log("Submitted Test Results");
         messages.Add(new Message(Role.User,input));
-        var chatAttempt = new ChatRequest(messages,Model.GPT4_Turbo,maxTokens: 50);
+        var chatAttempt = new ChatRequest(messages,Model.GPT4oMini,maxTokens: 50);
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
     }
@@ -75,7 +75,7 @@ public class AIController : MonoBehaviour
         Debug.Log("Submitted Fact Request");  
         string RequestMessage = "Please give me a random fact about something we talked about";
         messages.Add(new Message(Role.User,RequestMessage));
-        var chatAttempt = new ChatRequest(messages,Model.GPT4_Turbo,maxTokens: 50);
+        var chatAttempt = new ChatRequest(messages,Model.GPT4oMini,maxTokens: 50);
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
         messages.Add(new Message(Role.Assistant,response.FirstChoice));
         RandomFact.text = response.FirstChoice;

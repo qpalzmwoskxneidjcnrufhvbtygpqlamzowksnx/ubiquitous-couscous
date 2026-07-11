@@ -14,7 +14,7 @@ public class TestController : MonoBehaviour
     [SerializeField] private TMP_Text questionDisplay;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private GameObject doneButton;
-
+    [SerializeField] private GameObject Buddy;
     private int currentQuestionNumber;
     public event Action<string> OnTestOver;
     private void Awake()
@@ -27,7 +27,7 @@ public class TestController : MonoBehaviour
         {
             // Splits the text by any common line-ending format and removes empty lines
             questions = new List<string>(file.text.Split(new[] { "\r\n", "\r", "\n" }, System.StringSplitOptions.RemoveEmptyEntries));
-            
+
             Debug.Log($"Loaded {questions.Count} questions.");
         }
         else
@@ -40,14 +40,14 @@ public class TestController : MonoBehaviour
 
     public void OnNextQuestionButtonPressed()
     {
-        if(currentQuestionNumber >= questions.Count)
+        if (currentQuestionNumber >= questions.Count)
         {
             return; //TEST IS OVER
         }
 
         CleanupCurrentQuestion();
         LoadNextQuestion();
-    
+
     }
 
     private void CleanupCurrentQuestion()
@@ -63,7 +63,7 @@ public class TestController : MonoBehaviour
 
     private void LoadNextQuestion()
     {
-        if(currentQuestionNumber >= questions.Count)
+        if (currentQuestionNumber >= questions.Count)
         {
             QuestionsOver();
         }
@@ -71,7 +71,7 @@ public class TestController : MonoBehaviour
         {
             questionDisplay.text = questions[currentQuestionNumber];
         }
-        
+
     }
 
     private void LoadFirstQuestion()
@@ -90,12 +90,16 @@ public class TestController : MonoBehaviour
     private string FormCompleteString()
     {
         string doneString = "";
-        foreach(var key in questionsAndAnswers.Keys)
+        foreach (var key in questionsAndAnswers.Keys)
         {
             doneString += $"{key}:: Q:{questionsAndAnswers[key].question} | A:{questionsAndAnswers[key].answer}\n";
         }
         Debug.Log(doneString);
         return doneString;
+    }
+    public void EnableBuddy()
+    {
+        Buddy.SetActive(true);
     }
 }
 
@@ -103,4 +107,5 @@ public struct QuestionAnswer
 {
     public string question;
     public string answer;
+   
 }

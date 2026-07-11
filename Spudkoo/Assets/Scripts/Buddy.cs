@@ -352,4 +352,8 @@ public class Buddy : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             PickNewTarget();
         }
     }
+    public void SetBuddyPosition (Transform target)
+    {
+        transform.position = target.position;
+    }
 }
