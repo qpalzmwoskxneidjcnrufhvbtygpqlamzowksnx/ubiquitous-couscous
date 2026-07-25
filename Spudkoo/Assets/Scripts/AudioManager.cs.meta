@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 0906492d66cb6c44ba8574b2bb2a9e9b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - musicGroup: {fileID: -4495240748950710096, guid: c0946568aabf5204697ddaaf84a1c066, type: 2}
+  - SFXGroup: {fileID: -7016043206035958943, guid: c0946568aabf5204697ddaaf84a1c066, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
