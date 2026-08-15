@@ -1,19 +1,44 @@
-1. Finish up backgrounds
-2. Find visuals for AI buddy (Aden is working on this with another instructor)
-3. Reset option for developers (the actual save system)
-4. UI popup for when player gets Budds talking to buddy.
-5. Music / Sound Effects (kindof like the background shop, user has a way to select the background music they want)
-    - Each page should have its own background music
-    - Every few minutes, the music changes
-6. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
+
+1. Background Music finish
+2. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
+3. FAQ
+    - Menu that pops up with frequently asked questions, instructions on how to use the app, etc.
+4. Test App on phone (NOT YET)
 
 Specifications for Settings
 - ActiveBuddyAnimations, wait until we have the buddy+ActiveBuddyAnimations
-- AI Audio Toggle, haven't been able to get TTS in Unity previously, might be hard, can probably remove
-- Low Performance Mode - Can Remove
-- Configure Button Positions - can Remove
+
+5. Instead of a shop, want to add objects that load in with the backgrounds 
+    - For example, an office background might let the buddy stand on the table
+    - Just 2d objects, so can simply have UICollidable hitboxes where we want them. 
+    - Can do this through making the background itself a prefab? Or storing as data the positions + sizes to put the hitboxes?
+
 - For notifications:
     - Package Unity.Notifications.Android to get up and running. Example from google: 
+
+
+
+Notifications:
+- for users to get off their phones
+- picks from pool of messages to send every so often
+
+
+
+Sound Effects Needed:
+- Clicky SFX for UI Button click
+
+
+Buddy Animations
+- Walking - Plays whenever buddy walks
+- Rotating - Plays whenever buddy turns direction
+- Wave at screen - Perhaps plays randomly
+- Sit on a button? - Perhaps plays randomly
+- Lots of different Emotes
+
+SFX
+- Plays some depending on the Emote (music if dancing, little noises here and there)
+- Emote music overrides background music temporarily 
+
 
 
 
@@ -36,5 +61,6 @@ notification.Text = "Jump back in and start playing!";
 notification.FireTime = System.DateTime.Now.AddHours(2);
 
 AndroidNotificationCenter.SendNotification(notification, "energy_channel");
+
 
 
