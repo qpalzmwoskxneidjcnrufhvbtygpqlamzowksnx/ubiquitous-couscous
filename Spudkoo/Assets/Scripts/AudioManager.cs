@@ -84,6 +84,7 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.loop = loop;
         musicSource.Play();
+        Debug.Log($"Now playing {clip.name}");
     }
     public void StopMusic()
     {
