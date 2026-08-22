@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class BackgroundPlayer : MonoBehaviour
 
@@ -30,6 +31,16 @@ public class BackgroundPlayer : MonoBehaviour
             clip = GetRandomMusic();
         }
         AudioManager.Instance.PlayMusic(clip);
+        StartCoroutine(BackgroundMusicTimer(clip));
         currentMusic = clip;
-        }
     }
+    private IEnumerator BackgroundMusicTimer(AudioClip clip)
+    {
+        yield return new WaitForSeconds(clip.length);
+        PlayNewMusic();
+        
+    }
+}
+
+
+

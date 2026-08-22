@@ -1,5 +1,4 @@
 
-1. Background Music finish
 2. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
 3. FAQ
     - Menu that pops up with frequently asked questions, instructions on how to use the app, etc.
