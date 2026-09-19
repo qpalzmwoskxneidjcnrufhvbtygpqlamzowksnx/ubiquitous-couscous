@@ -3229,6 +3229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1540816530}
+  submitButton: {fileID: 0}
   outputText: {fileID: 16984151}
   testController: {fileID: 1850554291}
   RandomFact: {fileID: 1669440623}

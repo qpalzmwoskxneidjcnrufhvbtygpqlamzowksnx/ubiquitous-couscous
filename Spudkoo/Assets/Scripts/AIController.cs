@@ -11,6 +11,7 @@ public class AIController : MonoBehaviour
     OpenAIClient openAI;
     List<Message> messages;
     public TMP_InputField inputField;
+    public Button submitButton;
     public TMP_Text outputText;
     [SerializeField] private TestController testController;
     public TMP_Text RandomFact;
@@ -40,9 +41,9 @@ public class AIController : MonoBehaviour
             ")
         };
         openAI = new OpenAIClient();
-        inputField.onEndEdit.AddListener( (text) =>
+        submitButton.onClick.AddListener( () =>
         {
-            SubmitChat(text);
+            SubmitChat(inputField.text); 
         }
         );
     }
