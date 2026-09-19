@@ -1,7 +1,6 @@
 
 2. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
-3. FAQ
-    - Menu that pops up with frequently asked questions, instructions on how to use the app, etc.
+   
 4. Test App on phone (NOT YET)
 
 Specifications for Settings
@@ -60,6 +59,9 @@ notification.Text = "Jump back in and start playing!";
 notification.FireTime = System.DateTime.Now.AddHours(2);
 
 AndroidNotificationCenter.SendNotification(notification, "energy_channel");
+
+
+
 
 
 
