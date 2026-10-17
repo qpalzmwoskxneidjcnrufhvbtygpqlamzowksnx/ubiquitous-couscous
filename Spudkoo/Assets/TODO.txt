@@ -1,30 +1,12 @@
-
-2. Settings (take another look at which ones we actually need vs what we can implement vs what we can remove)
    
 4. Test App on phone (NOT YET)
 
 Specifications for Settings
 - ActiveBuddyAnimations, wait until we have the buddy+ActiveBuddyAnimations
 
-5. Instead of a shop, want to add objects that load in with the backgrounds 
-    - For example, an office background might let the buddy stand on the table
-    - Just 2d objects, so can simply have UICollidable hitboxes where we want them. 
-    - Can do this through making the background itself a prefab? Or storing as data the positions + sizes to put the hitboxes?
-
-- For notifications:
-    - Package Unity.Notifications.Android to get up and running. Example from google: 
-
-
-
 Notifications:
 - for users to get off their phones
 - picks from pool of messages to send every so often
-
-
-
-Sound Effects Needed:
-- Clicky SFX for UI Button click
-
 
 Buddy Animations
 - Walking - Plays whenever buddy walks
@@ -61,7 +43,8 @@ notification.FireTime = System.DateTime.Now.AddHours(2);
 AndroidNotificationCenter.SendNotification(notification, "energy_channel");
 
 
+! Make sure everytime the app is closed, all conversations are converted and compressed for the AI to store and remember for when the user opens the app the next time !  
 
 
-
+Statistics page = track :  Average daily screentime over past week, total budds collected, total messages sent to buddy, total playtime, 
 
