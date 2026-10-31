@@ -48,3 +48,4 @@ AndroidNotificationCenter.SendNotification(notification, "energy_channel");
 
 Statistics page = track :  Average daily screentime over past week, total budds collected, total messages sent to buddy, total playtime, 
 
+music volume controls - ability to turn music on or off
