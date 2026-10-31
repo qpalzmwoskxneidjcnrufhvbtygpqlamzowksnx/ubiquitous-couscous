@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicSource;
     private List<AudioSource> sfxPool;
     private GameObject poolContainer;
+    private AudioMixer masterMixer;
     private void InitializeManager()
     {
         musicSource = gameObject.AddComponent<AudioSource>();
