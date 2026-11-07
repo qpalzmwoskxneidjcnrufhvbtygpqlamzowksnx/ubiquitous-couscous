@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
+
 public class AudioManager : MonoBehaviour
 {
 
@@ -12,7 +13,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     [SerializeField] private AudioMixerGroup musicGroup;
     [SerializeField] private AudioMixerGroup SFXGroup;
-
+    [SerializeField] private AudioMixer masterMixer;
     [SerializeField] private int initialPoolSize = 5;
     [SerializeField] private bool canGrow = true;
     private AudioSource musicSource;
@@ -100,5 +101,18 @@ public class AudioManager : MonoBehaviour
         source.pitch = pitch;
         source.spatialBlend = 0f;
         source.Play();
+    }
+
+    public void ChangeVolume(string mixerGroup, float value)
+    {
+        
+        if (value <= -60)
+        {
+            masterMixer.SetFloat(mixerGroup,-80);
+        }
+        else
+        {
+            masterMixer.SetFloat(mixerGroup, value);
+        }
     }
 }
