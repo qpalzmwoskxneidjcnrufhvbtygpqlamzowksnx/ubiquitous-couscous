@@ -6,6 +6,7 @@ using OpenAI.Models;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 public class AIController : MonoBehaviour
 {
     OpenAIClient openAI;
@@ -42,26 +43,41 @@ public class AIController : MonoBehaviour
             
             ")
         };
-        openAI = new OpenAIClient();
+        try
+        {
+            openAI = new OpenAIClient();
+        }
+        catch
+        {
+            Debug.Log($"[AIController] Could not create openAI object, need sign-in credentials.");
+        }
+        
         submitButton.onClick.AddListener( () =>
         {
             SubmitChat(inputField.text); 
         }
         );
+        messages.AddRange(ConversationLoader.LoadAndCompact());
     }
     async void SubmitChat(string input)
     {
+        if(openAI == null) return;
         Debug.Log("ChatSubmitted");
-        messages.Add(new Message(Role.User,inputField.text));
+        Message userMessage = new Message(Role.User, inputField.text);
+        messages.Add(userMessage);
+        ConversationLoader.Append(userMessage);
         var chatAttempt = new ChatRequest(messages,Model.GPT4oMini,maxTokens: 50);
         var response = await openAI.ChatEndpoint.GetCompletionAsync(chatAttempt);
-        messages.Add(new Message(Role.Assistant,response.FirstChoice));
+        Message aiResponse = new Message(Role.Assistant, response.FirstChoice);
+        messages.Add(aiResponse);
+        ConversationLoader.Append(aiResponse);
         outputText.text = response.FirstChoice;
         OnAIConversed?.Invoke();
     }
 
     async void SubmitTestResults(string input)
     {
+        if(openAI == null) return;
         Debug.Log("Submitted Test Results");
         messages.Add(new Message(Role.User,input));
         var chatAttempt = new ChatRequest(messages,Model.GPT4oMini,maxTokens: 50);
@@ -78,6 +94,7 @@ public class AIController : MonoBehaviour
 
 
     public async void FactRequest(){
+        if(openAI == null) return;
         Debug.Log("Submitted Fact Request");  
         string RequestMessage = "Please give me a random fact about something we talked about";
         messages.Add(new Message(Role.User,RequestMessage));
@@ -87,5 +104,4 @@ public class AIController : MonoBehaviour
         RandomFact.text = response.FirstChoice;
         OnAIConversed?.Invoke();
     }
-
 }

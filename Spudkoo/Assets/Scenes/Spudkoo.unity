@@ -5730,6 +5730,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbaa69f90352fdb4081c8237fae6cfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &537772123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537772125}
+  - component: {fileID: 537772124}
+  m_Layer: 0
+  m_Name: ConversationLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &537772124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537772123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29355d26553d7644f87765cda9c8b6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConversationLoader
+  originalFileName: conversation.txt
+  compressedFileName: conversation.gz
+--- !u!4 &537772125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537772123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.02272, y: 11.89556, z: 69.64433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545414828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8267,7 +8313,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicGroup: {fileID: -4495240748950710096, guid: c0946568aabf5204697ddaaf84a1c066, type: 2}
   SFXGroup: {fileID: -7016043206035958943, guid: c0946568aabf5204697ddaaf84a1c066, type: 2}
-  masterMixer: {fileID: 24100000, guid: c0946568aabf5204697ddaaf84a1c066, type: 2}
   initialPoolSize: 5
   canGrow: 1
 --- !u!4 &818455146
@@ -24289,3 +24334,4 @@ SceneRoots:
   - {fileID: 818455146}
   - {fileID: 1562877856}
   - {fileID: 1985327900}
+  - {fileID: 537772125}
