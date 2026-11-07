@@ -1,13 +1,3 @@
-   
-4. Test App on phone (NOT YET)
-
-Specifications for Settings
-- ActiveBuddyAnimations, wait until we have the buddy+ActiveBuddyAnimations
-
-Notifications:
-- for users to get off their phones
-- picks from pool of messages to send every so often
-
 Buddy Animations
 - Walking - Plays whenever buddy walks
 - Rotating - Plays whenever buddy turns direction
@@ -20,32 +10,13 @@ SFX
 - Emote music overrides background music temporarily 
 
 
+ConversationLoader
+- Done, just need to compress/summarize conversation (every time? when it reaches a certain size?)
 
 
-using Unity.Notifications.Android;
-
-// 1. Register Android Channel
-var channel = new AndroidNotificationChannel()
-{
-    Id = "energy_channel",
-    Name = "Game Reminders",
-    Importance = Importance.Default,
-    Description = "Reminds you when game events finish",
-};
-AndroidNotificationCenter.RegisterNotificationChannel(channel);
-
-// 2. Schedule Notification
-var notification = new AndroidNotification();
-notification.Title = "Energy Refilled!";
-notification.Text = "Jump back in and start playing!";
-notification.FireTime = System.DateTime.Now.AddHours(2);
-
-AndroidNotificationCenter.SendNotification(notification, "energy_channel");
+Statistics page
+- Store daily screentime
+- Store total budds collected
+- Store total messages sent
 
 
-! Make sure everytime the app is closed, all conversations are converted and compressed for the AI to store and remember for when the user opens the app the next time !  
-
-
-Statistics page = track :  Average daily screentime over past week, total budds collected, total messages sent to buddy, total playtime, 
-
-music volume controls - ability to turn music on or off
